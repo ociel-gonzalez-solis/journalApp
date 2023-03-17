@@ -14,7 +14,7 @@ export const JournalPage = () => {
       </Typography>
 
       {/* Nothing Selected */}
-      {/* <div></div> */}
+
       {/* Not Viewed */}
     </JournalLayout>
   );
