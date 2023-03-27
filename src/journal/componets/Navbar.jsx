@@ -23,7 +23,7 @@ export const Navbar = ({ drawerWith = 240 }) => {
         </IconButton>
         <Grid container direction="row" justifyContent="space-between" alingItems='center'>
           <Typography variant="h6" noWrap component="div">
-            Journal App
+            Journal App 
           </Typography>
           <IconButton color="error">
             <LogoutOutlined />
