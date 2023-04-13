@@ -1,11 +1,18 @@
 import { Link as RouterLink } from "react-router-dom";
 import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
+import { useForm } from "../../hooks";
 
 export const RegisterPage = () => {
+  const { displayName, email, password, onInputChange, onSubmit } = useForm({
+    email: "test@test.com",
+    password: "12345",
+    displayName: "Ociel Gonzalez",
+  });
+
   return (
     <AuthLayout title="Register">
-      <form>
+      <form onSubmit={onSubmit}>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
@@ -13,6 +20,9 @@ export const RegisterPage = () => {
               type="text"
               placeholder="tester 1"
               fullWidth
+              name="displayName"
+              value={displayName}
+              onChange={onInputChange}
             />
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
@@ -21,6 +31,9 @@ export const RegisterPage = () => {
               type="email"
               placeholder="test@test.com"
               fullWidth
+              name="email"
+              value={email}
+              onChange={onInputChange}
             />
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
@@ -29,12 +42,15 @@ export const RegisterPage = () => {
               type="password"
               placeholder="password"
               fullWidth
+              name="password"
+              value={password}
+              onChange={onInputChange}
             />
           </Grid>
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12}>
-              <Button variant="contained" fullWidth>
-                Login
+              <Button type="submit" variant="contained" fullWidth>
+                Register
               </Button>
             </Grid>
           </Grid>

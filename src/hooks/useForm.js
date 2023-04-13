@@ -15,10 +15,16 @@ export const useForm = (initialForm = {}) => {
     setFormState(initialForm);
   };
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(formState);
+  };
+
   return {
     ...formState,
     formState,
     onInputChange,
     onResetForm,
+    onSubmit,
   };
 };
