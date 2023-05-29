@@ -1,10 +1,18 @@
-import { useMemo } from "react";
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+
+import { useDispatch } from 'react-redux';
+
+import { startRegisterWithEmailAndPassword } from '../store/auth/thunk';
 
 export const useForm = (initialForm = {}, formValidations = {}) => {
   const [formState, setFormState] = useState(initialForm);
   const [formValidation, setFormValidation] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     createValidators();
@@ -23,6 +31,7 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
       ...formState,
       [name]: value,
     });
+    console.log(formState);
   };
 
   const onResetForm = () => {
@@ -45,7 +54,8 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
     event.preventDefault();
     setFormSubmitted(true);
     if (!isFormValid) return;
-    console.log(formState);
+    // console.log(formState);
+    dispatch(startRegisterWithEmailAndPassword(formState));
   };
 
   return {

@@ -1,7 +1,15 @@
-import { Link as RouterLink } from "react-router-dom";
-import { Button, Grid, Link, TextField, Typography } from "@mui/material";
-import { AuthLayout } from "../layout/AuthLayout";
-import { useForm } from "../../hooks";
+import { Link as RouterLink } from 'react-router-dom';
+
+import {
+  Button,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+} from '@mui/material';
+
+import { useForm } from '../../hooks';
+import { AuthLayout } from '../layout/AuthLayout';
 
 const formValidations = {
   email: [(value) => value.includes("@"), "El correo debe de tener un arroba"],
@@ -27,17 +35,17 @@ export const RegisterPage = () => {
     formSubmitted,
   } = useForm(
     {
-      email: "test@test.com",
-      password: "12345",
-      displayName: "Ociel Gonzalez",
+      email: "ozzy@soulisstdio.com",
+      password: "123456",
+      displayName: "Ociel Gonzalez Solis",
     },
     formValidations
   );
-  console.log(displayNameValid);
+  console.log(displayName, email, password);
 
   return (
     <AuthLayout title="Register">
-      <h1>Form is {isFormValid ? "Valid" : "Incorrect"}</h1>;
+      <h1>Form is {isFormValid ? "Valid" : "Incorrect"}</h1>
       <form onSubmit={onSubmit}>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
