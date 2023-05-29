@@ -41,7 +41,7 @@ export const RegisterPage = () => {
     },
     formValidations
   );
-  console.log(displayName, email, password);
+  // console.log(displayName, email, password);
 
   return (
     <AuthLayout title="Register">

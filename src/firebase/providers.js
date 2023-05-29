@@ -33,19 +33,24 @@ export const signInWithGoogle = async () => {
 };
 
 export const registerWithEmailAndPassword = async ({
+  displayName,
   email,
   password,
-  displayName,
 }) => {
   try {
-    const res = await createUserWithEmailAndPassword(
+    // console.log({ displayName, email, password });
+
+    const resp = await createUserWithEmailAndPassword(
       FirebaseAuth,
       email,
       password
     );
-    const { uid, photoURL } = res;
-    console.log("🚀 ~ file: providers.js:46 ~ res:", res);
+    const { uid, photoURL } = resp.user;
+
+    console.log(resp);
   } catch (error) {
+    console.log(error);
+
     return {
       ok: false,
       errorMessage: error.message,

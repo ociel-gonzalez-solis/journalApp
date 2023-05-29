@@ -50,13 +50,15 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
     setFormValidation(formCheckedValues);
   };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setFormSubmitted(true);
-    if (!isFormValid) return;
-    // console.log(formState);
-    dispatch(startRegisterWithEmailAndPassword(formState));
-  };
+   const onSubmit = (event) => {
+     event.preventDefault();
+
+     setFormSubmitted(true);
+
+     if (!isFormValid) return;
+
+     dispatch(startRegisterWithEmailAndPassword(formState));
+   };
 
   return {
     ...formState,

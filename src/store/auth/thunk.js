@@ -1,12 +1,8 @@
 import {
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from '../../firebase/providers';
-import {
-  checkingCredentials,
-  login,
-  logout,
-} from './';
+} from "../../firebase/providers";
+import { checkingCredentials, login, logout } from "./";
 
 export const checkingAuthentication = (email, password) => {
   return async (dispatch) => {
