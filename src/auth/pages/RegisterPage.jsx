@@ -1,15 +1,18 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from "react-router-dom";
 
 import {
+  Alert,
   Button,
   Grid,
   Link,
   TextField,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
 
-import { useForm } from '../../hooks';
-import { AuthLayout } from '../layout/AuthLayout';
+import { useForm } from "../../hooks";
+import { AuthLayout } from "../layout/AuthLayout";
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
 
 const formValidations = {
   email: [(value) => value.includes("@"), "El correo debe de tener un arroba"],
@@ -42,6 +45,11 @@ export const RegisterPage = () => {
     formValidations
   );
   // console.log(displayName, email, password);
+  const { status, errorMessage } = useSelector((state) => state.auth);
+  const isCheckingAuthentication = useMemo(
+    () => status === "checking",
+    [status]
+  );
 
   return (
     <AuthLayout title="Register">
@@ -88,8 +96,16 @@ export const RegisterPage = () => {
             />
           </Grid>
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+            <Grid item xs={12} display={!!errorMessage ? "" : "none"}>
+              <Alert severity="error">{errorMessage}</Alert>
+            </Grid>
             <Grid item xs={12}>
-              <Button type="submit" variant="contained" fullWidth>
+              <Button
+                disabled={isCheckingAuthentication}
+                type="submit"
+                variant="contained"
+                fullWidth
+              >
                 Register
               </Button>
             </Grid>

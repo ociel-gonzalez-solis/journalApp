@@ -1,5 +1,9 @@
 import { authSlice, checkingCredentials, login, logout } from "./authSlice";
-import { checkingAuthentication, startGoogleSignIn } from "./thunk";
+import {
+  checkingAuthentication,
+  startGoogleSignIn,
+  startLogInWithEmailAndPassword,
+} from "./thunk";
 
 export {
   authSlice,
@@ -8,4 +12,5 @@ export {
   checkingCredentials,
   checkingAuthentication,
   startGoogleSignIn,
+  startLogInWithEmailAndPassword,
 };

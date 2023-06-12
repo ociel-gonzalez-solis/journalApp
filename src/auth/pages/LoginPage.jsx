@@ -4,7 +4,10 @@ import { Google } from "@mui/icons-material";
 import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../../hooks";
-import { checkingAuthentication, startGoogleSignIn } from "../../store/auth";
+import {
+  startGoogleSignIn,
+  startLogInWithEmailAndPassword,
+} from "../../store/auth";
 import { useMemo } from "react";
 
 export const LoginPage = () => {
@@ -20,7 +23,7 @@ export const LoginPage = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log({ email, password });
-    dispatch(checkingAuthentication());
+    dispatch(startLogInWithEmailAndPassword({ email, password }));
   };
 
   const onGoogleSignIn = () => {
