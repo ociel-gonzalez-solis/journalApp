@@ -3,6 +3,7 @@ import {
   checkingAuthentication,
   startGoogleSignIn,
   startLogInWithEmailAndPassword,
+  startLogout
 } from "./thunk";
 
 export {
@@ -13,4 +14,5 @@ export {
   checkingAuthentication,
   startGoogleSignIn,
   startLogInWithEmailAndPassword,
+  startLogout
 };
