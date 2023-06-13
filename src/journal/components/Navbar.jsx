@@ -21,9 +21,14 @@ export const Navbar = ({ drawerWith = 240 }) => {
         >
           <MenuBookOutlined />
         </IconButton>
-        <Grid container direction="row" justifyContent="space-between" alingItems='center'>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alingitems="center"
+        >
           <Typography variant="h6" noWrap component="div">
-            Journal App 
+            Journal App
           </Typography>
           <IconButton color="error">
             <LogoutOutlined />
