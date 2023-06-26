@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  status: "not-authenticated",
-  uid: null,
-  email: null,
-  displayName: null,
-  photoURL: null,
+  status      : "not-authenticated",
+  uid         : null,
+  email       : null,
+  displayName : null,
+  photoURL    : null,
   errorMessage: null,
 };
 
